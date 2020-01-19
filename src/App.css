@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -12,4 +8,8 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.qr-wrapper {
+  padding: 0.75rem;
 }

@@ -49,6 +49,7 @@ export default class PlantList extends Component<Props, State> {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th>QR</th>
               <th>Name</th>
               <th>Species</th>
               <th>Action</th>

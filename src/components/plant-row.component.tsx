@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import QRCode from "qrcode.react";
 
 interface State {
   name?: string;
@@ -35,6 +36,9 @@ export default class PlantRow extends Component<Props, State> {
   render() {
     return (
       <tr>
+        <td>
+          <QRCode value={this.props.obj._id} />
+        </td>
         <td>{this.props.obj.name}</td>
         <td>{this.props.obj.species}</td>
         <td>

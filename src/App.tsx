@@ -34,12 +34,6 @@ const App: React.FC = () => {
                   </Link>
                 </Nav>
 
-                {/* <Nav>
-                <Link to={"/edit-plant/:id"} className="nav-link">
-                  Edit Plant
-                </Link>
-              </Nav> */}
-
                 <Nav>
                   <Link to={"/list-plant"} className="nav-link">
                     List Plants

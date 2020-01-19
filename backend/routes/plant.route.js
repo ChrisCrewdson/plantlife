@@ -18,7 +18,7 @@ router.route("/create-plant").post((req, res, next) => {
 });
 
 // READ Plants
-router.route("/").get((req, res) => {
+router.route("/").get((req, res, next) => {
   plantSchema.find((error, data) => {
     if (error) {
       return next(error);
@@ -30,12 +30,12 @@ router.route("/").get((req, res) => {
 });
 
 // Get Single Plant
-router.route("/edit-plant/:id").get((req, res) => {
+router.route("/edit-plant/:id").get((req, res, next) => {
   plantSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
-      console.log("Plant edited successfully!");
+      console.log("Plant read successfully!");
       res.json(data);
     }
   });
@@ -53,7 +53,7 @@ router.route("/update-plant/:id").put((req, res, next) => {
         console.log(error);
         return next(error);
       } else {
-        console.log("Plant updated successfully!", data);
+        console.log("Plant updated successfully!");
         res.json(data);
       }
     }

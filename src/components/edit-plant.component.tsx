@@ -65,7 +65,7 @@ export default class EditPlant extends Component<Props, State> {
         plantObject
       )
       .then(res => {
-        console.log("Plant successfully updated", res.data);
+        console.log("Plant successfully updated");
       })
       .catch(error => {
         console.log(error);

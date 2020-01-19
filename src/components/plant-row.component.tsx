@@ -38,7 +38,10 @@ export default class PlantRow extends Component<Props, State> {
         <td>{this.props.obj.name}</td>
         <td>{this.props.obj.species}</td>
         <td>
-          <Link className="edit-link" to={"/edit-plant/" + this.props.obj._id}>
+          <Link
+            className="edit-link btn"
+            to={"/edit-plant/" + this.props.obj._id}
+          >
             Edit
           </Link>
           <Button size="sm" variant="danger" onClick={this.deletePlant}>

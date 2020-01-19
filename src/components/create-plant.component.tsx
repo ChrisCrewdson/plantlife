@@ -44,10 +44,6 @@ export default class CreatePlant extends Component<Props, State> {
     await axios
       .post("http://192.168.1.42:4000/plants/create-plant", plantObject)
       .then(res => {
-        console.log(`Plant successfully created!`);
-        console.log(`Name: ${this.state.name}`);
-        console.log(`Species: ${this.state.species}`);
-
         console.log("Plant successfully created", res.data);
       })
       .catch(error => {

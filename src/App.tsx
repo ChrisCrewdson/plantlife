@@ -13,6 +13,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import CreatePlant from "./components/create-plant.component";
 import EditPlant from "./components/edit-plant.component";
 import ListPlant from "./components/list-plant.component";
+import ViewPlant from "./components/view-plant.component";
 
 const App: React.FC = () => {
   return (
@@ -51,6 +52,7 @@ const App: React.FC = () => {
                   <Route exact path="/" component={CreatePlant} />
                   <Route path="/create-plant" component={CreatePlant} />
                   <Route path="/edit-plant/:id" component={EditPlant} />
+                  <Route path="/view-plant/:id" component={ViewPlant} />
                   <Route path="/list-plant" component={ListPlant} />
                 </Switch>
               </div>

@@ -22,10 +22,8 @@ export default class PlantRow extends Component<Props, State> {
 
   deletePlant() {
     axios
-      .delete(
-        "http://192.168.1.42:4000/plants/delete-plant/" + this.props.obj._id
-      )
-      .then(res => {
+      .delete("http://localhost:4000/plants/delete-plant/" + this.props.obj._id)
+      .then(() => {
         console.log("Plant successfully deleted!");
       })
       .catch(error => {
@@ -42,6 +40,12 @@ export default class PlantRow extends Component<Props, State> {
         <td>{this.props.obj.name}</td>
         <td>{this.props.obj.species}</td>
         <td>
+          <Link
+            className="view-link btn"
+            to={"/view-plant/" + this.props.obj._id}
+          >
+            View
+          </Link>
           <Link
             className="edit-link btn"
             to={"/edit-plant/" + this.props.obj._id}

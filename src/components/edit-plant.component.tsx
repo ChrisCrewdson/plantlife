@@ -29,8 +29,7 @@ export default class EditPlant extends Component<Props, State> {
   componentDidMount() {
     axios
       .get(
-        "http://192.168.1.42:4000/plants/edit-plant/" +
-          this.props.match.params.id
+        "http://localhost:4000/plants/view-plant/" + this.props.match.params.id
       )
       .then(res => {
         this.setState({
@@ -61,11 +60,11 @@ export default class EditPlant extends Component<Props, State> {
 
     axios
       .put(
-        "http://192.168.1.42:4000/plants/update-plant/" +
+        "http://localhost:4000/plants/update-plant/" +
           this.props.match.params.id,
         plantObject
       )
-      .then(res => {
+      .then(() => {
         console.log("Plant successfully updated");
       })
       .catch(error => {

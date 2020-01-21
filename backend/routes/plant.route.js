@@ -30,7 +30,7 @@ router.route("/").get((req, res, next) => {
 });
 
 // Get Single Plant
-router.route("/edit-plant/:id").get((req, res, next) => {
+router.route("/view-plant/:id").get((req, res, next) => {
   plantSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);

@@ -26,7 +26,7 @@ export default class PlantList extends Component<Props, State> {
 
   componentDidMount() {
     axios
-      .get("http://192.168.1.42:4000/plants/")
+      .get("http://localhost:4000/plants/")
       .then(res => {
         this.setState({
           plants: res.data

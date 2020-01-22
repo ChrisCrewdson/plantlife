@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, Link } from "react-router-dom";
 import QRCode from "qrcode.react";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
 type Props = RouteComponentProps<{ id?: string }>;
 interface State {
@@ -20,10 +22,23 @@ export default class ViewPlant extends Component<Props, State> {
     };
   }
 
+  deletePlant() {
+    axios
+      .delete(
+        `${process.env.REACT_APP_API_URI}/plants/delete-plant/${this.props.match.params.id}`
+      )
+      .then(() => {
+        console.log("Plant successfully deleted!");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   componentDidMount() {
     axios
       .get(
-        "http://localhost:4000/plants/view-plant/" + this.props.match.params.id
+        `${process.env.REACT_APP_API_URI}/plants/view-plant/${this.props.match.params.id}`
       )
       .then(res => {
         this.setState({
@@ -38,14 +53,39 @@ export default class ViewPlant extends Component<Props, State> {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <div className="qr-wrapper">
-          <QRCode value={this.props.match.params.id || ""} />
-        </div>
-        <div>Name: {this.state.name}</div>
+      <Table striped bordered hover>
+        <tbody>
+          <tr className="qr-wrapper">
+            <td colSpan={2}>
+              <QRCode
+                value={`${process.env.REACT_APP_URI}/view-plant/${this.props.match.params.id}`}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{this.state.name}</td>
+          </tr>
+          <tr>
+            <td>Species</td>
+            <td>{this.state.species}</td>
+          </tr>
 
-        <div>Species: {this.state.species}</div>
-      </div>
+          <tr>
+            <td>
+              <Link
+                className="edit-link btn"
+                to={"/edit-plant/" + this.props.match.params.id}
+              >
+                Edit
+              </Link>
+              <Button size="sm" variant="danger" onClick={this.deletePlant}>
+                Delete
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
     );
   }
 }

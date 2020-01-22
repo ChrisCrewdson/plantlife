@@ -26,7 +26,7 @@ export default class PlantList extends Component<Props, State> {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/plants/")
+      .get(`${process.env.REACT_APP_API_URI}/plants/`)
       .then(res => {
         this.setState({
           plants: res.data
@@ -49,7 +49,6 @@ export default class PlantList extends Component<Props, State> {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>QR</th>
               <th>Name</th>
               <th>Species</th>
               <th>Action</th>

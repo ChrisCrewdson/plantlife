@@ -2,16 +2,19 @@ let express = require("express");
 let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
-let dbConfig = require("./database/db");
 const createError = require("http-errors");
+const dotenv = require("dotenv");
 
-// Express Route
 const plantRoute = require("../backend/routes/plant.route");
+
+dotenv.config();
+
+// console.log("env.MONGODB_URI", process.env.MONGODB_URI);
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(dbConfig.db, {
+  .connect(`${process.env.MONGODB_URI}/plantdb`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

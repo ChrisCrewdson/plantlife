@@ -4,16 +4,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import * as dotenv from "dotenv";
+import "bootstrap/dist/css/bootstrap.css";
 
+import "./App.css";
 import CreatePlant from "./components/create-plant.component";
 import EditPlant from "./components/edit-plant.component";
 import ListPlant from "./components/list-plant.component";
 import ViewPlant from "./components/view-plant.component";
+
+dotenv.config();
 
 const App: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ const App: React.FC = () => {
             <Col md={12}>
               <div className="wrapper">
                 <Switch>
-                  <Route exact path="/" component={CreatePlant} />
+                  <Route exact path="/" component={ListPlant} />
                   <Route path="/create-plant" component={CreatePlant} />
                   <Route path="/edit-plant/:id" component={EditPlant} />
                   <Route path="/view-plant/:id" component={ViewPlant} />

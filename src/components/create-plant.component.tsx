@@ -42,7 +42,7 @@ export default class CreatePlant extends Component<Props, State> {
       species: this.state.species
     };
     await axios
-      .post("http://localhost:4000/plants/create-plant", plantObject)
+      .post(`${process.env.REACT_APP_API_URI}/plants/create-plant`, plantObject)
       .then(res => {
         console.log("Plant successfully created", res.data);
       })

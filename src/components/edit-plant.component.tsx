@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import { RouteComponentProps } from "react-router-dom";
-import QRCode from "qrcode.react";
 
 type Props = RouteComponentProps<{ id?: string }>;
 interface State {
@@ -29,7 +28,7 @@ export default class EditPlant extends Component<Props, State> {
   componentDidMount() {
     axios
       .get(
-        "http://localhost:4000/plants/view-plant/" + this.props.match.params.id
+        `${process.env.REACT_APP_API_URI}/plants/view-plant/${this.props.match.params.id}`
       )
       .then(res => {
         this.setState({
@@ -60,8 +59,7 @@ export default class EditPlant extends Component<Props, State> {
 
     axios
       .put(
-        "http://localhost:4000/plants/update-plant/" +
-          this.props.match.params.id,
+        `${process.env.REACT_APP_API_URI}/plants/update-plant/${this.props.match.params.id}`,
         plantObject
       )
       .then(() => {
@@ -78,9 +76,6 @@ export default class EditPlant extends Component<Props, State> {
   render() {
     return (
       <div className="form-wrapper">
-        <div className="qr-wrapper">
-          <QRCode value={this.props.match.params.id || ""} />
-        </div>
         <Form onSubmit={this.onSubmit}>
           <Form.Group controlId="Name">
             <Form.Label>Name</Form.Label>

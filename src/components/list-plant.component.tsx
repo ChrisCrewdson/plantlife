@@ -51,7 +51,6 @@ export default class PlantList extends Component<Props, State> {
             <tr>
               <th>Name</th>
               <th>Species</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>{this.DataTable()}</tbody>

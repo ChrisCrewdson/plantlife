@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 interface State {
@@ -35,24 +34,15 @@ export default class PlantRow extends Component<Props, State> {
   render() {
     return (
       <tr>
-        <td>{this.props.obj.name}</td>
-        <td>{this.props.obj.species}</td>
         <td>
-          <Link
-            className="view-link btn"
-            to={"/view-plant/" + this.props.obj._id}
-          >
-            View
+          <Link className="view-link" to={"/view-plant/" + this.props.obj._id}>
+            {this.props.obj.name}
           </Link>
-          <Link
-            className="edit-link btn"
-            to={"/edit-plant/" + this.props.obj._id}
-          >
-            Edit
+        </td>
+        <td>
+          <Link className="view-link" to={"/view-plant/" + this.props.obj._id}>
+            {this.props.obj.species}
           </Link>
-          <Button size="sm" variant="danger" onClick={this.deletePlant}>
-            Delete
-          </Button>
         </td>
       </tr>
     );

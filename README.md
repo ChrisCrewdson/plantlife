@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ChrisCrewdson/plantlife.svg?branch=master)](https://travis-ci.com/ChrisCrewdson/plantlife)
+[![Build Status](https://travis-ci.com/ChrisCrewdson/plantlife.svg?branch=master)](https://travis-ci.com/ChrisCrewdson/plantlife) [![Greenkeeper badge](https://badges.greenkeeper.io/ChrisCrewdson/plantlife.svg)](https://greenkeeper.io/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
